@@ -15,6 +15,9 @@ class CreateTableSpecialty extends Migration
     {
         Schema::create('specialty', function (Blueprint $table) {
             $table->id();
+            $table->string("description");
+            $table->bigInteger("instituteid")->unsigned();
+            $table->foreign("instituteid")->references("id")->on("institute");
             $table->timestamps();
         });
     }

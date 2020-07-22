@@ -15,6 +15,11 @@ class CreateTableTopic extends Migration
     {
         Schema::create('topic', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("courseid")->unsigned();
+            $table->foreign("courseid")->references("id")->on("course"); 
+            $table->string("title");
+            $table->string("week",3);
+            $table->longText("post");
             $table->timestamps();
         });
     }

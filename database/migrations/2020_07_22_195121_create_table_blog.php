@@ -15,6 +15,11 @@ class CreateTableBlog extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("personid")->unsigned();
+            $table->foreign("personid")->references("id")->on("person"); 
+            $table->string("title");
+            $table->longText("post");
+            $table->string("page",100)->unique();
             $table->timestamps();
         });
     }

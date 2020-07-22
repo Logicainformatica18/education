@@ -15,6 +15,9 @@ class CreateTableAssitance extends Migration
     {
         Schema::create('assitance', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("registrydetailid")->unsigned();
+            $table->foreign("registrydetailid")->references("id")->on("registrydetail"); 
+            $table->string("state");
             $table->timestamps();
         });
     }

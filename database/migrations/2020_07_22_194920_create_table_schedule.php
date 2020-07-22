@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableExamdetail extends Migration
+class CreateTableSchedule extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateTableExamdetail extends Migration
      */
     public function up()
     {
-        Schema::create('examdetail', function (Blueprint $table) {
+        Schema::create('schedule', function (Blueprint $table) {
             $table->id();
+            $table->time("start");
+            $table->time("end");
+            $table->string("description");
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateTableExamdetail extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('examdetail');
+        Schema::dropIfExists('schedule');
     }
 }

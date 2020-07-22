@@ -14,7 +14,9 @@ class CreateTablePosition extends Migration
     public function up()
     {
         Schema::create('position', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
+            $table->string("description");
             $table->timestamps();
         });
     }

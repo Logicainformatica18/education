@@ -15,6 +15,11 @@ class CreateTableHomework extends Migration
     {
         Schema::create('homework', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("registryid")->unsigned();
+            $table->foreign("registryid")->references("id")->on("registry"); 
+            $table->string("title",100);
+            $table->longText("post");
+            $table->date("delivery");
             $table->timestamps();
         });
     }

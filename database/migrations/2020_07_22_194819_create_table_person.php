@@ -14,7 +14,20 @@ class CreateTablePerson extends Migration
     public function up()
     {
         Schema::create('person', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
+            $table->string("dni",9);
+            $table->bigInteger("cargoid")->unsigned();
+            $table->foreign("cargoid")->references("id")->on("position");
+            $table->string("firstname");
+            $table->string("lastname");
+            $table->string("names");
+            $table->string("password");
+            $table->date("datebirth");
+            $table->string("cellphone",20);
+            $table->binary("photo");
+           $table->string("email",100)->unique();
+            $table->string("sex",1);
             $table->timestamps();
         });
     }

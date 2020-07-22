@@ -15,6 +15,13 @@ class CreateTableRegistrydetail extends Migration
     {
         Schema::create('registrydetail', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("registryid")->unsigned();
+            $table->foreign("registryid")->references("id")->on("registry"); 
+            $table->bigInteger("student")->unsigned();
+            $table->foreign("student")->references("id")->on("person"); 
+            $table->bigInteger("specialtyid")->unsigned();
+            $table->foreign("specialtyid")->references("id")->on("specialty");
+            $table->string("module",3);
             $table->timestamps();
         });
     }
