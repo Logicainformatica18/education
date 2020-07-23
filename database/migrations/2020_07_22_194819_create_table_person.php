@@ -17,8 +17,8 @@ class CreateTablePerson extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->string("dni",9);
-            $table->bigInteger("cargoid")->unsigned();
-            $table->foreign("cargoid")->references("id")->on("position");
+            $table->bigInteger("positionid")->unsigned();
+            $table->foreign("positionid")->references("id")->on("position");
             $table->string("firstname");
             $table->string("lastname");
             $table->string("names");
